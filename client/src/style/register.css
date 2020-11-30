@@ -1,0 +1,10 @@
+.typeboc {
+  width: 500px;
+  height: 50px;
+}
+.box {
+  line-height: 100px;
+}
+.disp {
+  display: none;
+}
