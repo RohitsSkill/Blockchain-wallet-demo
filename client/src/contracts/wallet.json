@@ -2,17 +2,18 @@
   "contractName": "wallet",
   "abi": [
     {
+      "inputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
       "constant": false,
       "inputs": [
         {
           "internalType": "address",
           "name": "add",
           "type": "address"
-        },
-        {
-          "internalType": "uint256",
-          "name": "ammount",
-          "type": "uint256"
         },
         {
           "internalType": "string",
@@ -28,13 +29,7 @@
     },
     {
       "constant": true,
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "add",
-          "type": "address"
-        }
-      ],
+      "inputs": [],
       "name": "showAmmount",
       "outputs": [
         {
@@ -52,37 +47,58 @@
       "inputs": [
         {
           "internalType": "address",
-          "name": "add",
+          "name": "to",
           "type": "address"
         },
         {
           "internalType": "uint64",
-          "name": "ammount",
+          "name": "bal",
           "type": "uint64"
         }
       ],
       "name": "sendAmmount",
-      "outputs": [],
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
       "payable": false,
       "stateMutability": "nonpayable",
       "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "isOwner",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"add\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"ammount\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"mailid\",\"type\":\"string\"}],\"name\":\"createWallet\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"add\",\"type\":\"address\"},{\"internalType\":\"uint64\",\"name\":\"ammount\",\"type\":\"uint64\"}],\"name\":\"sendAmmount\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"address\",\"name\":\"add\",\"type\":\"address\"}],\"name\":\"showAmmount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/C/coursera/truffle/eWallet/contracts/wallet.sol\":\"wallet\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/coursera/truffle/eWallet/contracts/wallet.sol\":{\"keccak256\":\"0x7ee7b541c6a4afca296fc35dc59f48ce2a0da75218d5164a14f7ca545e136fa3\",\"urls\":[\"bzz-raw://a17a51c00326134a2e303c9e6cc39b61c2f0b6a6124485bab31703e824434f8a\",\"dweb:/ipfs/QmVtC91TuETdhd8AYyaTxVfoRBK2wG84CDWbMAwsSgyWow\"]}},\"version\":1}",
-  "bytecode": "0x608060405234801561001057600080fd5b5061049b806100206000396000f3fe608060405234801561001057600080fd5b50600436106100415760003560e01c80632203ac03146100465780637fd5eae91461009e578063d122dbdc14610183575b600080fd5b61009c6004803603604081101561005c57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803567ffffffffffffffff1690602001909291905050506101db565b005b610181600480360360608110156100b457600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190803590602001906401000000008111156100fb57600080fd5b82018360208201111561010d57600080fd5b8035906020019184600183028401116401000000008311171561012f57600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f820116905080830192505050505050509192919290505050610291565b005b6101c56004803603602081101561019957600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610376565b6040518082815260200191505060405180910390f35b8067ffffffffffffffff166000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600101600082825403925050819055508067ffffffffffffffff166000808473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600101600082825401925050819055505050565b60405180606001604052808473ffffffffffffffffffffffffffffffffffffffff168152602001838152602001828152506000808573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008201518160000160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060208201518160010155604082015181600201908051906020019061036d9291906103c1565b50905050505050565b60008060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600101549050919050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061040257805160ff1916838001178555610430565b82800160010185558215610430579182015b8281111561042f578251825591602001919060010190610414565b5b50905061043d9190610441565b5090565b61046391905b8082111561045f576000816000905550600101610447565b5090565b9056fea265627a7a72315820ee04e4fdccfdd250fc7dd9824a8bddfea0afa8c6d6c608d038a2fc6f011adcd864736f6c63430005100032",
-  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100415760003560e01c80632203ac03146100465780637fd5eae91461009e578063d122dbdc14610183575b600080fd5b61009c6004803603604081101561005c57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803567ffffffffffffffff1690602001909291905050506101db565b005b610181600480360360608110156100b457600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190803590602001906401000000008111156100fb57600080fd5b82018360208201111561010d57600080fd5b8035906020019184600183028401116401000000008311171561012f57600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f820116905080830192505050505050509192919290505050610291565b005b6101c56004803603602081101561019957600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610376565b6040518082815260200191505060405180910390f35b8067ffffffffffffffff166000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600101600082825403925050819055508067ffffffffffffffff166000808473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600101600082825401925050819055505050565b60405180606001604052808473ffffffffffffffffffffffffffffffffffffffff168152602001838152602001828152506000808573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008201518160000160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060208201518160010155604082015181600201908051906020019061036d9291906103c1565b50905050505050565b60008060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600101549050919050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061040257805160ff1916838001178555610430565b82800160010185558215610430579182015b8281111561042f578251825591602001919060010190610414565b5b50905061043d9190610441565b5090565b61046391905b8082111561045f576000816000905550600101610447565b5090565b9056fea265627a7a72315820ee04e4fdccfdd250fc7dd9824a8bddfea0afa8c6d6c608d038a2fc6f011adcd864736f6c63430005100032",
-  "sourceMap": "121:661:1:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;121:661:1;;;;;;;",
-  "deployedSourceMap": "121:661:1:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;121:661:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;623:157;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;623:157:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;328:173;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;328:173:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;21:11:-1;8;5:28;2:2;;;46:1;43;36:12;2:2;328:173:1;;35:9:-1;28:4;12:14;8:25;5:40;2:2;;;58:1;55;48:12;2:2;328:173:1;;;;;;100:9:-1;95:1;81:12;77:20;67:8;63:35;60:50;39:11;25:12;22:29;11:107;8:2;;;131:1;128;121:12;8:2;328:173:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;30:3:-1;22:6;14;1:33;99:1;93:3;85:6;81:16;74:27;137:4;133:9;126:4;121:3;117:14;113:30;106:37;;169:3;161:6;157:16;147:26;;328:173:1;;;;;;;;;;;;;;;:::i;:::-;;507:110;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;507:110:1;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;623:157;723:7;690:40;;:9;:21;700:10;690:21;;;;;;;;;;;;;;;:29;;;:40;;;;;;;;;;;766:7;740:33;;:9;:14;750:3;740:14;;;;;;;;;;;;;;;:22;;;:33;;;;;;;;;;;623:157;;:::o;328:173::-;466:28;;;;;;;;473:3;466:28;;;;;;478:7;466:28;;;;487:6;466:28;;;449:9;:14;459:3;449:14;;;;;;;;;;;;;;;:45;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;328:173;;;:::o;507:110::-;562:7;588:9;:14;598:3;588:14;;;;;;;;;;;;;;;:22;;;581:29;;507:110;;;:::o;121:661::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
-  "source": "//this is solidity contract for our wallet application\n// SPDX-License-Identifier: MIT\npragma solidity >=0.4.22 <0.8.0;\n\ncontract wallet {\n    struct Wallet {\n        address id;\n        uint256 ammount;\n        string mailid;\n    }\n\n    mapping(address => Wallet) getwallet;\n\n    //mapping(address => Wallet) getBallance;\n\n    function createWallet(\n        address add,\n        uint256 ammount,\n        string memory mailid\n    ) public {\n        getwallet[add] = Wallet(add, ammount, mailid);\n    }\n\n    function showAmmount(address add) public view returns (uint256) {\n        return getwallet[add].ammount;\n    }\n\n    function sendAmmount(address add, uint64 ammount) public {\n        getwallet[msg.sender].ammount -= ammount;\n        getwallet[add].ammount += ammount;\n    }\n}\n",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"add\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"mailid\",\"type\":\"string\"}],\"name\":\"createWallet\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"isOwner\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint64\",\"name\":\"bal\",\"type\":\"uint64\"}],\"name\":\"sendAmmount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"showAmmount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/C/coursera/truffle/eWallet/contracts/wallet.sol\":\"wallet\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/coursera/truffle/eWallet/contracts/wallet.sol\":{\"keccak256\":\"0x0a007cb89ae1b58443159ef8fe59adee8e0b968f23b6e630bd890b0c4a467cfc\",\"urls\":[\"bzz-raw://357cac44da6a148eb0f58c9fb880fc9563e993adf3bdb684975d6d8856525301\",\"dweb:/ipfs/QmYMqisxoQtTWBjm2SinEgbwyVdVo7pMHh1XyzD2a6SGtK\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b50336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550610645806100606000396000f3fe608060405234801561001057600080fd5b506004361061004c5760003560e01c80632203ac03146100515780633f8f7e5a146100bd5780638a29052f146101985780638f32d59b146101b6575b600080fd5b6100a76004803603604081101561006757600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803567ffffffffffffffff1690602001909291905050506101d8565b6040518082815260200191505060405180910390f35b610196600480360360408110156100d357600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291908035906020019064010000000081111561011057600080fd5b82018360208201111561012257600080fd5b8035906020019184600183028401116401000000008311171561014457600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192905050506103d3565b005b6101a06104b9565b6040518082815260200191505060405180910390f35b6101be610503565b604051808215151515815260200191505060405180910390f35b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614156102d3578167ffffffffffffffff16600160008573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060010160008282540192505081905550600160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206001015490506103cd565b8167ffffffffffffffff16600160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600101600082825403925050819055508167ffffffffffffffff16600160008573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060010160008282540192505081905550600160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206001015490505b92915050565b60405180606001604052808373ffffffffffffffffffffffffffffffffffffffff1681526020016000815260200182815250600160008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008201518160000160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506020820151816001015560408201518160020190805190602001906104b192919061056b565b509050505050565b6000600160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060010154905090565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614156105635760019050610568565b600090505b90565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f106105ac57805160ff19168380011785556105da565b828001600101855582156105da579182015b828111156105d95782518255916020019190600101906105be565b5b5090506105e791906105eb565b5090565b61060d91905b808211156106095760008160009055506001016105f1565b5090565b9056fea265627a7a7231582018c60a602f4e6211a25beb92678c13597c55fe17d73f30dacb3b926925843f5464736f6c63430005100032",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b506004361061004c5760003560e01c80632203ac03146100515780633f8f7e5a146100bd5780638a29052f146101985780638f32d59b146101b6575b600080fd5b6100a76004803603604081101561006757600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803567ffffffffffffffff1690602001909291905050506101d8565b6040518082815260200191505060405180910390f35b610196600480360360408110156100d357600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291908035906020019064010000000081111561011057600080fd5b82018360208201111561012257600080fd5b8035906020019184600183028401116401000000008311171561014457600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192905050506103d3565b005b6101a06104b9565b6040518082815260200191505060405180910390f35b6101be610503565b604051808215151515815260200191505060405180910390f35b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614156102d3578167ffffffffffffffff16600160008573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060010160008282540192505081905550600160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206001015490506103cd565b8167ffffffffffffffff16600160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600101600082825403925050819055508167ffffffffffffffff16600160008573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060010160008282540192505081905550600160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206001015490505b92915050565b60405180606001604052808373ffffffffffffffffffffffffffffffffffffffff1681526020016000815260200182815250600160008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008201518160000160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506020820151816001015560408201518160020190805190602001906104b192919061056b565b509050505050565b6000600160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060010154905090565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614156105635760019050610568565b600090505b90565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f106105ac57805160ff19168380011785556105da565b828001600101855582156105da579182015b828111156105d95782518255916020019190600101906105be565b5b5090506105e791906105eb565b5090565b61060d91905b808211156106095760008160009055506001016105f1565b5090565b9056fea265627a7a7231582018c60a602f4e6211a25beb92678c13597c55fe17d73f30dacb3b926925843f5464736f6c63430005100032",
+  "sourceMap": "121:1217:1:-;;;399:56;8:9:-1;5:2;;;30:1;27;20:12;5:2;399:56:1;438:10;430:5;;:18;;;;;;;;;;;;;;;;;;121:1217;;;;;;",
+  "deployedSourceMap": "121:1217:1:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;121:1217:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;699:505;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;699:505:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;461:120;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;461:120:1;;;;;;;;;;;;;;;;;;;;;21:11:-1;8;5:28;2:2;;;46:1;43;36:12;2:2;461:120:1;;35:9:-1;28:4;12:14;8:25;5:40;2:2;;;58:1;55;48:12;2:2;461:120:1;;;;;;100:9:-1;95:1;81:12;77:20;67:8;63:35;60:50;39:11;25:12;22:29;11:107;8:2;;;131:1;128;121:12;8:2;461:120:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;30:3:-1;22:6;14;1:33;99:1;93:3;85:6;81:16;74:27;137:4;133:9;126:4;121:3;117:14;113:30;106:37;;169:3;161:6;157:16;147:26;;461:120:1;;;;;;;;;;;;;;;:::i;:::-;;587:106;;;:::i;:::-;;;;;;;;;;;;;;;;;;;1210:126;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;699:505;760:7;797:5;;;;;;;;;;;783:19;;:10;:19;;;779:419;;;843:3;818:28;;:9;:13;828:2;818:13;;;;;;;;;;;;;;;:21;;;:28;;;;;;;;;;;867:9;:21;877:10;867:21;;;;;;;;;;;;;;;:29;;;860:36;;;;779:419;1018:3;985:36;;:9;:21;995:10;985:21;;;;;;;;;;;;;;;:29;;;:36;;;;;;;;;;;1060:3;1035:28;;:9;:13;1045:2;1035:13;;;;;;;;;;;;;;;:21;;;:28;;;;;;;;;;;1084:9;:21;1094:10;1084:21;;;;;;;;;;;;;;;:29;;;1077:36;;699:505;;;;;:::o;461:120::-;552:22;;;;;;;;559:3;552:22;;;;;;564:1;552:22;;;;567:6;552:22;;;535:9;:14;545:3;535:14;;;;;;;;;;;;;;;:39;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;461:120;;:::o;587:106::-;631:7;657:9;:21;667:10;657:21;;;;;;;;;;;;;;;:29;;;650:36;;587:106;:::o;1210:126::-;1250:4;1284:5;;;;;;;;;;;1270:19;;:10;:19;;;1266:63;;;1298:4;1291:11;;;;1266:63;1324:5;1317:12;;1210:126;;:::o;121:1217::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
+  "source": "//this is solidity contract for our wallet application\n// SPDX-License-Identifier: MIT\npragma solidity >=0.4.22 <0.8.0;\n\ncontract wallet {\n    address owner;\n\n    struct Wallet {\n        address id;\n        uint256 ammount;\n        string mailid;\n    }\n\n    mapping(address => Wallet) getwallet;\n\n    // modifier isOwner() {\n    //     require(msg.sender == this.owner);\n    //     _;\n    // }\n\n    constructor() public {\n        owner = msg.sender;\n    }\n\n    function createWallet(address add, string memory mailid) public {\n        getwallet[add] = Wallet(add, 0, mailid);\n    }\n\n    function showAmmount() public view returns (uint256) {\n        return getwallet[msg.sender].ammount;\n    }\n\n    function sendAmmount(address to, uint64 bal) public returns (uint256) {\n        if (msg.sender == owner) {\n            getwallet[to].ammount += bal;\n            return getwallet[msg.sender].ammount;\n        } else {\n            //if (getwallet[msg.sender].ammount >= bal) {\n            getwallet[msg.sender].ammount -= bal;\n            getwallet[to].ammount += bal;\n            return getwallet[msg.sender].ammount;\n            //} else {\n            //  return uint64(-1);\n            //}\n        }\n    }\n\n    function isOwner() public view returns (bool) {\n        if (msg.sender == owner) return true;\n        else return false;\n    }\n}\n",
   "sourcePath": "C:/coursera/truffle/eWallet/contracts/wallet.sol",
   "ast": {
     "absolutePath": "/C/coursera/truffle/eWallet/contracts/wallet.sol",
     "exportedSymbols": {
       "wallet": [
-        106
+        157
       ]
     },
-    "id": 107,
+    "id": 158,
     "nodeType": "SourceUnit",
     "nodes": [
       {
@@ -105,24 +121,51 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 106,
+        "id": 157,
         "linearizedBaseContracts": [
-          106
+          157
         ],
         "name": "wallet",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
+            "constant": false,
+            "id": 40,
+            "name": "owner",
+            "nodeType": "VariableDeclaration",
+            "scope": 157,
+            "src": "143:13:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 39,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "143:7:1",
+              "stateMutability": "nonpayable",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
             "canonicalName": "wallet.Wallet",
-            "id": 45,
+            "id": 47,
             "members": [
               {
                 "constant": false,
-                "id": 40,
+                "id": 42,
                 "name": "id",
                 "nodeType": "VariableDeclaration",
-                "scope": 45,
-                "src": "167:10:1",
+                "scope": 47,
+                "src": "187:10:1",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -130,10 +173,10 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 39,
+                  "id": 41,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "167:7:1",
+                  "src": "187:7:1",
                   "stateMutability": "nonpayable",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address",
@@ -145,11 +188,11 @@
               },
               {
                 "constant": false,
-                "id": 42,
+                "id": 44,
                 "name": "ammount",
                 "nodeType": "VariableDeclaration",
-                "scope": 45,
-                "src": "187:15:1",
+                "scope": 47,
+                "src": "207:15:1",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -157,10 +200,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 41,
+                  "id": 43,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "187:7:1",
+                  "src": "207:7:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -171,11 +214,11 @@
               },
               {
                 "constant": false,
-                "id": 44,
+                "id": 46,
                 "name": "mailid",
                 "nodeType": "VariableDeclaration",
-                "scope": 45,
-                "src": "212:13:1",
+                "scope": 47,
+                "src": "232:13:1",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -183,10 +226,10 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 43,
+                  "id": 45,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
-                  "src": "212:6:1",
+                  "src": "232:6:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_string_storage_ptr",
                     "typeString": "string"
@@ -198,50 +241,50 @@
             ],
             "name": "Wallet",
             "nodeType": "StructDefinition",
-            "scope": 106,
-            "src": "143:89:1",
+            "scope": 157,
+            "src": "163:89:1",
             "visibility": "public"
           },
           {
             "constant": false,
-            "id": 49,
+            "id": 51,
             "name": "getwallet",
             "nodeType": "VariableDeclaration",
-            "scope": 106,
-            "src": "238:36:1",
+            "scope": 157,
+            "src": "258:36:1",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Wallet_$45_storage_$",
+              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Wallet_$47_storage_$",
               "typeString": "mapping(address => struct wallet.Wallet)"
             },
             "typeName": {
-              "id": 48,
+              "id": 50,
               "keyType": {
-                "id": 46,
+                "id": 48,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
-                "src": "246:7:1",
+                "src": "266:7:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_address",
                   "typeString": "address"
                 }
               },
               "nodeType": "Mapping",
-              "src": "238:26:1",
+              "src": "258:26:1",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Wallet_$45_storage_$",
+                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Wallet_$47_storage_$",
                 "typeString": "mapping(address => struct wallet.Wallet)"
               },
               "valueType": {
                 "contractScope": null,
-                "id": 47,
+                "id": 49,
                 "name": "Wallet",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 45,
-                "src": "257:6:1",
+                "referencedDeclaration": 47,
+                "src": "277:6:1",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_Wallet_$45_storage_ptr",
+                  "typeIdentifier": "t_struct$_Wallet_$47_storage_ptr",
                   "typeString": "struct wallet.Wallet"
                 }
               }
@@ -251,14 +294,109 @@
           },
           {
             "body": {
-              "id": 68,
+              "id": 59,
               "nodeType": "Block",
-              "src": "439:62:1",
+              "src": "420:35:1",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 66,
+                    "id": 57,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 54,
+                      "name": "owner",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 40,
+                      "src": "430:5:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 55,
+                        "name": "msg",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 172,
+                        "src": "438:3:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_message",
+                          "typeString": "msg"
+                        }
+                      },
+                      "id": 56,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "sender",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "438:10:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address_payable",
+                        "typeString": "address payable"
+                      }
+                    },
+                    "src": "430:18:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 58,
+                  "nodeType": "ExpressionStatement",
+                  "src": "430:18:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 60,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 52,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "410:2:1"
+            },
+            "returnParameters": {
+              "id": 53,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "420:0:1"
+            },
+            "scope": 157,
+            "src": "399:56:1",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 77,
+              "nodeType": "Block",
+              "src": "525:56:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 75,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -267,26 +405,26 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 58,
+                        "id": 67,
                         "name": "getwallet",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 49,
-                        "src": "449:9:1",
+                        "referencedDeclaration": 51,
+                        "src": "535:9:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Wallet_$45_storage_$",
+                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Wallet_$47_storage_$",
                           "typeString": "mapping(address => struct wallet.Wallet storage ref)"
                         }
                       },
-                      "id": 60,
+                      "id": 69,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 59,
+                        "id": 68,
                         "name": "add",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 51,
-                        "src": "459:3:1",
+                        "referencedDeclaration": 62,
+                        "src": "545:3:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -297,9 +435,9 @@
                       "isPure": false,
                       "lValueRequested": true,
                       "nodeType": "IndexAccess",
-                      "src": "449:14:1",
+                      "src": "535:14:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Wallet_$45_storage",
+                        "typeIdentifier": "t_struct$_Wallet_$47_storage",
                         "typeString": "struct wallet.Wallet storage ref"
                       }
                     },
@@ -310,12 +448,12 @@
                       "arguments": [
                         {
                           "argumentTypes": null,
-                          "id": 62,
+                          "id": 71,
                           "name": "add",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 51,
-                          "src": "473:3:1",
+                          "referencedDeclaration": 62,
+                          "src": "559:3:1",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
                             "typeString": "address"
@@ -323,25 +461,30 @@
                         },
                         {
                           "argumentTypes": null,
-                          "id": 63,
-                          "name": "ammount",
-                          "nodeType": "Identifier",
-                          "overloadedDeclarations": [],
-                          "referencedDeclaration": 53,
-                          "src": "478:7:1",
+                          "hexValue": "30",
+                          "id": 72,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "number",
+                          "lValueRequested": false,
+                          "nodeType": "Literal",
+                          "src": "564:1:1",
+                          "subdenomination": null,
                           "typeDescriptions": {
-                            "typeIdentifier": "t_uint256",
-                            "typeString": "uint256"
-                          }
+                            "typeIdentifier": "t_rational_0_by_1",
+                            "typeString": "int_const 0"
+                          },
+                          "value": "0"
                         },
                         {
                           "argumentTypes": null,
-                          "id": 64,
+                          "id": 73,
                           "name": "mailid",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 55,
-                          "src": "487:6:1",
+                          "referencedDeclaration": 64,
+                          "src": "567:6:1",
                           "typeDescriptions": {
                             "typeIdentifier": "t_string_memory_ptr",
                             "typeString": "string memory"
@@ -355,26 +498,26 @@
                             "typeString": "address"
                           },
                           {
-                            "typeIdentifier": "t_uint256",
-                            "typeString": "uint256"
+                            "typeIdentifier": "t_rational_0_by_1",
+                            "typeString": "int_const 0"
                           },
                           {
                             "typeIdentifier": "t_string_memory_ptr",
                             "typeString": "string memory"
                           }
                         ],
-                        "id": 61,
+                        "id": 70,
                         "name": "Wallet",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 45,
-                        "src": "466:6:1",
+                        "referencedDeclaration": 47,
+                        "src": "552:6:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_struct$_Wallet_$45_storage_ptr_$",
+                          "typeIdentifier": "t_type$_t_struct$_Wallet_$47_storage_ptr_$",
                           "typeString": "type(struct wallet.Wallet storage pointer)"
                         }
                       },
-                      "id": 65,
+                      "id": 74,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -382,42 +525,42 @@
                       "lValueRequested": false,
                       "names": [],
                       "nodeType": "FunctionCall",
-                      "src": "466:28:1",
+                      "src": "552:22:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Wallet_$45_memory",
+                        "typeIdentifier": "t_struct$_Wallet_$47_memory",
                         "typeString": "struct wallet.Wallet memory"
                       }
                     },
-                    "src": "449:45:1",
+                    "src": "535:39:1",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Wallet_$45_storage",
+                      "typeIdentifier": "t_struct$_Wallet_$47_storage",
                       "typeString": "struct wallet.Wallet storage ref"
                     }
                   },
-                  "id": 67,
+                  "id": 76,
                   "nodeType": "ExpressionStatement",
-                  "src": "449:45:1"
+                  "src": "535:39:1"
                 }
               ]
             },
             "documentation": null,
-            "id": 69,
+            "id": 78,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "createWallet",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 56,
+              "id": 65,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 51,
+                  "id": 62,
                   "name": "add",
                   "nodeType": "VariableDeclaration",
-                  "scope": 69,
-                  "src": "359:11:1",
+                  "scope": 78,
+                  "src": "483:11:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -425,10 +568,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 50,
+                    "id": 61,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "359:7:1",
+                    "src": "483:7:1",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -440,37 +583,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 53,
-                  "name": "ammount",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 69,
-                  "src": "380:15:1",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  },
-                  "typeName": {
-                    "id": 52,
-                    "name": "uint256",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "380:7:1",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                },
-                {
-                  "constant": false,
-                  "id": 55,
+                  "id": 64,
                   "name": "mailid",
                   "nodeType": "VariableDeclaration",
-                  "scope": 69,
-                  "src": "405:20:1",
+                  "scope": 78,
+                  "src": "496:20:1",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -478,10 +595,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 54,
+                    "id": 63,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "405:6:1",
+                    "src": "496:6:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -491,25 +608,25 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "349:82:1"
+              "src": "482:35:1"
             },
             "returnParameters": {
-              "id": 57,
+              "id": 66,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "439:0:1"
+              "src": "525:0:1"
             },
-            "scope": 106,
-            "src": "328:173:1",
+            "scope": 157,
+            "src": "461:120:1",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 81,
+              "id": 89,
               "nodeType": "Block",
-              "src": "571:46:1",
+              "src": "640:53:1",
               "statements": [
                 {
                   "expression": {
@@ -518,29 +635,45 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 76,
+                        "id": 83,
                         "name": "getwallet",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 49,
-                        "src": "588:9:1",
+                        "referencedDeclaration": 51,
+                        "src": "657:9:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Wallet_$45_storage_$",
+                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Wallet_$47_storage_$",
                           "typeString": "mapping(address => struct wallet.Wallet storage ref)"
                         }
                       },
-                      "id": 78,
+                      "id": 86,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 77,
-                        "name": "add",
-                        "nodeType": "Identifier",
-                        "overloadedDeclarations": [],
-                        "referencedDeclaration": 71,
-                        "src": "598:3:1",
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 84,
+                          "name": "msg",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 172,
+                          "src": "667:3:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_message",
+                            "typeString": "msg"
+                          }
+                        },
+                        "id": 85,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "sender",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "667:10:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_address",
-                          "typeString": "address"
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
                         }
                       },
                       "isConstant": false,
@@ -548,85 +681,57 @@
                       "isPure": false,
                       "lValueRequested": false,
                       "nodeType": "IndexAccess",
-                      "src": "588:14:1",
+                      "src": "657:21:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Wallet_$45_storage",
+                        "typeIdentifier": "t_struct$_Wallet_$47_storage",
                         "typeString": "struct wallet.Wallet storage ref"
                       }
                     },
-                    "id": 79,
+                    "id": 87,
                     "isConstant": false,
                     "isLValue": true,
                     "isPure": false,
                     "lValueRequested": false,
                     "memberName": "ammount",
                     "nodeType": "MemberAccess",
-                    "referencedDeclaration": 42,
-                    "src": "588:22:1",
+                    "referencedDeclaration": 44,
+                    "src": "657:29:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "functionReturnParameters": 75,
-                  "id": 80,
+                  "functionReturnParameters": 82,
+                  "id": 88,
                   "nodeType": "Return",
-                  "src": "581:29:1"
+                  "src": "650:36:1"
                 }
               ]
             },
             "documentation": null,
-            "id": 82,
+            "id": 90,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "showAmmount",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 72,
+              "id": 79,
               "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 71,
-                  "name": "add",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 82,
-                  "src": "528:11:1",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_address",
-                    "typeString": "address"
-                  },
-                  "typeName": {
-                    "id": 70,
-                    "name": "address",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "528:7:1",
-                    "stateMutability": "nonpayable",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_address",
-                      "typeString": "address"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                }
-              ],
-              "src": "527:13:1"
+              "parameters": [],
+              "src": "607:2:1"
             },
             "returnParameters": {
-              "id": 75,
+              "id": 82,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 74,
+                  "id": 81,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 82,
-                  "src": "562:7:1",
+                  "scope": 90,
+                  "src": "631:7:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -634,10 +739,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 73,
+                    "id": 80,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "562:7:1",
+                    "src": "631:7:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -647,234 +752,559 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "561:9:1"
+              "src": "630:9:1"
             },
-            "scope": 106,
-            "src": "507:110:1",
+            "scope": 157,
+            "src": "587:106:1",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 104,
+              "id": 140,
               "nodeType": "Block",
-              "src": "680:100:1",
+              "src": "769:435:1",
               "statements": [
                 {
-                  "expression": {
+                  "condition": {
                     "argumentTypes": null,
-                    "id": 95,
-                    "isConstant": false,
-                    "isLValue": false,
-                    "isPure": false,
-                    "lValueRequested": false,
-                    "leftHandSide": {
-                      "argumentTypes": null,
-                      "expression": {
-                        "argumentTypes": null,
-                        "baseExpression": {
-                          "argumentTypes": null,
-                          "id": 89,
-                          "name": "getwallet",
-                          "nodeType": "Identifier",
-                          "overloadedDeclarations": [],
-                          "referencedDeclaration": 49,
-                          "src": "690:9:1",
-                          "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Wallet_$45_storage_$",
-                            "typeString": "mapping(address => struct wallet.Wallet storage ref)"
-                          }
-                        },
-                        "id": 92,
-                        "indexExpression": {
-                          "argumentTypes": null,
-                          "expression": {
-                            "argumentTypes": null,
-                            "id": 90,
-                            "name": "msg",
-                            "nodeType": "Identifier",
-                            "overloadedDeclarations": [],
-                            "referencedDeclaration": 121,
-                            "src": "700:3:1",
-                            "typeDescriptions": {
-                              "typeIdentifier": "t_magic_message",
-                              "typeString": "msg"
-                            }
-                          },
-                          "id": 91,
-                          "isConstant": false,
-                          "isLValue": false,
-                          "isPure": false,
-                          "lValueRequested": false,
-                          "memberName": "sender",
-                          "nodeType": "MemberAccess",
-                          "referencedDeclaration": null,
-                          "src": "700:10:1",
-                          "typeDescriptions": {
-                            "typeIdentifier": "t_address_payable",
-                            "typeString": "address payable"
-                          }
-                        },
-                        "isConstant": false,
-                        "isLValue": true,
-                        "isPure": false,
-                        "lValueRequested": false,
-                        "nodeType": "IndexAccess",
-                        "src": "690:21:1",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Wallet_$45_storage",
-                          "typeString": "struct wallet.Wallet storage ref"
-                        }
-                      },
-                      "id": 93,
-                      "isConstant": false,
-                      "isLValue": true,
-                      "isPure": false,
-                      "lValueRequested": true,
-                      "memberName": "ammount",
-                      "nodeType": "MemberAccess",
-                      "referencedDeclaration": 42,
-                      "src": "690:29:1",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_uint256",
-                        "typeString": "uint256"
-                      }
+                    "commonType": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
                     },
-                    "nodeType": "Assignment",
-                    "operator": "-=",
-                    "rightHandSide": {
-                      "argumentTypes": null,
-                      "id": 94,
-                      "name": "ammount",
-                      "nodeType": "Identifier",
-                      "overloadedDeclarations": [],
-                      "referencedDeclaration": 86,
-                      "src": "723:7:1",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_uint64",
-                        "typeString": "uint64"
-                      }
-                    },
-                    "src": "690:40:1",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
-                    }
-                  },
-                  "id": 96,
-                  "nodeType": "ExpressionStatement",
-                  "src": "690:40:1"
-                },
-                {
-                  "expression": {
-                    "argumentTypes": null,
                     "id": 102,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
-                    "leftHandSide": {
+                    "leftExpression": {
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "baseExpression": {
-                          "argumentTypes": null,
-                          "id": 97,
-                          "name": "getwallet",
-                          "nodeType": "Identifier",
-                          "overloadedDeclarations": [],
-                          "referencedDeclaration": 49,
-                          "src": "740:9:1",
-                          "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Wallet_$45_storage_$",
-                            "typeString": "mapping(address => struct wallet.Wallet storage ref)"
-                          }
-                        },
                         "id": 99,
-                        "indexExpression": {
-                          "argumentTypes": null,
-                          "id": 98,
-                          "name": "add",
-                          "nodeType": "Identifier",
-                          "overloadedDeclarations": [],
-                          "referencedDeclaration": 84,
-                          "src": "750:3:1",
-                          "typeDescriptions": {
-                            "typeIdentifier": "t_address",
-                            "typeString": "address"
-                          }
-                        },
-                        "isConstant": false,
-                        "isLValue": true,
-                        "isPure": false,
-                        "lValueRequested": false,
-                        "nodeType": "IndexAccess",
-                        "src": "740:14:1",
+                        "name": "msg",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 172,
+                        "src": "783:3:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Wallet_$45_storage",
-                          "typeString": "struct wallet.Wallet storage ref"
+                          "typeIdentifier": "t_magic_message",
+                          "typeString": "msg"
                         }
                       },
                       "id": 100,
                       "isConstant": false,
-                      "isLValue": true,
+                      "isLValue": false,
                       "isPure": false,
-                      "lValueRequested": true,
-                      "memberName": "ammount",
+                      "lValueRequested": false,
+                      "memberName": "sender",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 42,
-                      "src": "740:22:1",
+                      "referencedDeclaration": null,
+                      "src": "783:10:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_uint256",
-                        "typeString": "uint256"
+                        "typeIdentifier": "t_address_payable",
+                        "typeString": "address payable"
                       }
                     },
-                    "nodeType": "Assignment",
-                    "operator": "+=",
-                    "rightHandSide": {
+                    "nodeType": "BinaryOperation",
+                    "operator": "==",
+                    "rightExpression": {
                       "argumentTypes": null,
                       "id": 101,
-                      "name": "ammount",
+                      "name": "owner",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 86,
-                      "src": "766:7:1",
+                      "referencedDeclaration": 40,
+                      "src": "797:5:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_uint64",
-                        "typeString": "uint64"
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
                       }
                     },
-                    "src": "740:33:1",
+                    "src": "783:19:1",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
                     }
                   },
-                  "id": 103,
-                  "nodeType": "ExpressionStatement",
-                  "src": "740:33:1"
+                  "falseBody": {
+                    "id": 138,
+                    "nodeType": "Block",
+                    "src": "913:285:1",
+                    "statements": [
+                      {
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 123,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "leftHandSide": {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "baseExpression": {
+                                "argumentTypes": null,
+                                "id": 117,
+                                "name": "getwallet",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 51,
+                                "src": "985:9:1",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Wallet_$47_storage_$",
+                                  "typeString": "mapping(address => struct wallet.Wallet storage ref)"
+                                }
+                              },
+                              "id": 120,
+                              "indexExpression": {
+                                "argumentTypes": null,
+                                "expression": {
+                                  "argumentTypes": null,
+                                  "id": 118,
+                                  "name": "msg",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [],
+                                  "referencedDeclaration": 172,
+                                  "src": "995:3:1",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_magic_message",
+                                    "typeString": "msg"
+                                  }
+                                },
+                                "id": 119,
+                                "isConstant": false,
+                                "isLValue": false,
+                                "isPure": false,
+                                "lValueRequested": false,
+                                "memberName": "sender",
+                                "nodeType": "MemberAccess",
+                                "referencedDeclaration": null,
+                                "src": "995:10:1",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_address_payable",
+                                  "typeString": "address payable"
+                                }
+                              },
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "nodeType": "IndexAccess",
+                              "src": "985:21:1",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_Wallet_$47_storage",
+                                "typeString": "struct wallet.Wallet storage ref"
+                              }
+                            },
+                            "id": 121,
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": true,
+                            "memberName": "ammount",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 44,
+                            "src": "985:29:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "nodeType": "Assignment",
+                          "operator": "-=",
+                          "rightHandSide": {
+                            "argumentTypes": null,
+                            "id": 122,
+                            "name": "bal",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 94,
+                            "src": "1018:3:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint64",
+                              "typeString": "uint64"
+                            }
+                          },
+                          "src": "985:36:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "id": 124,
+                        "nodeType": "ExpressionStatement",
+                        "src": "985:36:1"
+                      },
+                      {
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 130,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "leftHandSide": {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "baseExpression": {
+                                "argumentTypes": null,
+                                "id": 125,
+                                "name": "getwallet",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 51,
+                                "src": "1035:9:1",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Wallet_$47_storage_$",
+                                  "typeString": "mapping(address => struct wallet.Wallet storage ref)"
+                                }
+                              },
+                              "id": 127,
+                              "indexExpression": {
+                                "argumentTypes": null,
+                                "id": 126,
+                                "name": "to",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 92,
+                                "src": "1045:2:1",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_address",
+                                  "typeString": "address"
+                                }
+                              },
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "nodeType": "IndexAccess",
+                              "src": "1035:13:1",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_Wallet_$47_storage",
+                                "typeString": "struct wallet.Wallet storage ref"
+                              }
+                            },
+                            "id": 128,
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": true,
+                            "memberName": "ammount",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 44,
+                            "src": "1035:21:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "nodeType": "Assignment",
+                          "operator": "+=",
+                          "rightHandSide": {
+                            "argumentTypes": null,
+                            "id": 129,
+                            "name": "bal",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 94,
+                            "src": "1060:3:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint64",
+                              "typeString": "uint64"
+                            }
+                          },
+                          "src": "1035:28:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "id": 131,
+                        "nodeType": "ExpressionStatement",
+                        "src": "1035:28:1"
+                      },
+                      {
+                        "expression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "baseExpression": {
+                              "argumentTypes": null,
+                              "id": 132,
+                              "name": "getwallet",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 51,
+                              "src": "1084:9:1",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Wallet_$47_storage_$",
+                                "typeString": "mapping(address => struct wallet.Wallet storage ref)"
+                              }
+                            },
+                            "id": 135,
+                            "indexExpression": {
+                              "argumentTypes": null,
+                              "expression": {
+                                "argumentTypes": null,
+                                "id": 133,
+                                "name": "msg",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 172,
+                                "src": "1094:3:1",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_magic_message",
+                                  "typeString": "msg"
+                                }
+                              },
+                              "id": 134,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "memberName": "sender",
+                              "nodeType": "MemberAccess",
+                              "referencedDeclaration": null,
+                              "src": "1094:10:1",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_address_payable",
+                                "typeString": "address payable"
+                              }
+                            },
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "nodeType": "IndexAccess",
+                            "src": "1084:21:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_Wallet_$47_storage",
+                              "typeString": "struct wallet.Wallet storage ref"
+                            }
+                          },
+                          "id": 136,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "ammount",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 44,
+                          "src": "1084:29:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "functionReturnParameters": 98,
+                        "id": 137,
+                        "nodeType": "Return",
+                        "src": "1077:36:1"
+                      }
+                    ]
+                  },
+                  "id": 139,
+                  "nodeType": "IfStatement",
+                  "src": "779:419:1",
+                  "trueBody": {
+                    "id": 116,
+                    "nodeType": "Block",
+                    "src": "804:103:1",
+                    "statements": [
+                      {
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 108,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "leftHandSide": {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "baseExpression": {
+                                "argumentTypes": null,
+                                "id": 103,
+                                "name": "getwallet",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 51,
+                                "src": "818:9:1",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Wallet_$47_storage_$",
+                                  "typeString": "mapping(address => struct wallet.Wallet storage ref)"
+                                }
+                              },
+                              "id": 105,
+                              "indexExpression": {
+                                "argumentTypes": null,
+                                "id": 104,
+                                "name": "to",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 92,
+                                "src": "828:2:1",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_address",
+                                  "typeString": "address"
+                                }
+                              },
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "nodeType": "IndexAccess",
+                              "src": "818:13:1",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_Wallet_$47_storage",
+                                "typeString": "struct wallet.Wallet storage ref"
+                              }
+                            },
+                            "id": 106,
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": true,
+                            "memberName": "ammount",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 44,
+                            "src": "818:21:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "nodeType": "Assignment",
+                          "operator": "+=",
+                          "rightHandSide": {
+                            "argumentTypes": null,
+                            "id": 107,
+                            "name": "bal",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 94,
+                            "src": "843:3:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint64",
+                              "typeString": "uint64"
+                            }
+                          },
+                          "src": "818:28:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "id": 109,
+                        "nodeType": "ExpressionStatement",
+                        "src": "818:28:1"
+                      },
+                      {
+                        "expression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "baseExpression": {
+                              "argumentTypes": null,
+                              "id": 110,
+                              "name": "getwallet",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 51,
+                              "src": "867:9:1",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Wallet_$47_storage_$",
+                                "typeString": "mapping(address => struct wallet.Wallet storage ref)"
+                              }
+                            },
+                            "id": 113,
+                            "indexExpression": {
+                              "argumentTypes": null,
+                              "expression": {
+                                "argumentTypes": null,
+                                "id": 111,
+                                "name": "msg",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 172,
+                                "src": "877:3:1",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_magic_message",
+                                  "typeString": "msg"
+                                }
+                              },
+                              "id": 112,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "memberName": "sender",
+                              "nodeType": "MemberAccess",
+                              "referencedDeclaration": null,
+                              "src": "877:10:1",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_address_payable",
+                                "typeString": "address payable"
+                              }
+                            },
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "nodeType": "IndexAccess",
+                            "src": "867:21:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_Wallet_$47_storage",
+                              "typeString": "struct wallet.Wallet storage ref"
+                            }
+                          },
+                          "id": 114,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "ammount",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 44,
+                          "src": "867:29:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "functionReturnParameters": 98,
+                        "id": 115,
+                        "nodeType": "Return",
+                        "src": "860:36:1"
+                      }
+                    ]
+                  }
                 }
               ]
             },
             "documentation": null,
-            "id": 105,
+            "id": 141,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "sendAmmount",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 87,
+              "id": 95,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 84,
-                  "name": "add",
+                  "id": 92,
+                  "name": "to",
                   "nodeType": "VariableDeclaration",
-                  "scope": 105,
-                  "src": "644:11:1",
+                  "scope": 141,
+                  "src": "720:10:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -882,10 +1312,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 83,
+                    "id": 91,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "644:7:1",
+                    "src": "720:7:1",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -897,11 +1327,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 86,
-                  "name": "ammount",
+                  "id": 94,
+                  "name": "bal",
                   "nodeType": "VariableDeclaration",
-                  "scope": 105,
-                  "src": "657:14:1",
+                  "scope": 141,
+                  "src": "732:10:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -909,10 +1339,10 @@
                     "typeString": "uint64"
                   },
                   "typeName": {
-                    "id": 85,
+                    "id": 93,
                     "name": "uint64",
                     "nodeType": "ElementaryTypeName",
-                    "src": "657:6:1",
+                    "src": "732:6:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint64",
                       "typeString": "uint64"
@@ -922,35 +1352,236 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "643:29:1"
+              "src": "719:24:1"
             },
             "returnParameters": {
-              "id": 88,
+              "id": 98,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 97,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 141,
+                  "src": "760:7:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 96,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "760:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "759:9:1"
+            },
+            "scope": 157,
+            "src": "699:505:1",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 155,
+              "nodeType": "Block",
+              "src": "1256:80:1",
+              "statements": [
+                {
+                  "condition": {
+                    "argumentTypes": null,
+                    "commonType": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    },
+                    "id": 149,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 146,
+                        "name": "msg",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 172,
+                        "src": "1270:3:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_message",
+                          "typeString": "msg"
+                        }
+                      },
+                      "id": 147,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "sender",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "1270:10:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address_payable",
+                        "typeString": "address payable"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "==",
+                    "rightExpression": {
+                      "argumentTypes": null,
+                      "id": 148,
+                      "name": "owner",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 40,
+                      "src": "1284:5:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "src": "1270:19:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "falseBody": {
+                    "expression": {
+                      "argumentTypes": null,
+                      "hexValue": "66616c7365",
+                      "id": 152,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "bool",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "1324:5:1",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      },
+                      "value": "false"
+                    },
+                    "functionReturnParameters": 145,
+                    "id": 153,
+                    "nodeType": "Return",
+                    "src": "1317:12:1"
+                  },
+                  "id": 154,
+                  "nodeType": "IfStatement",
+                  "src": "1266:63:1",
+                  "trueBody": {
+                    "expression": {
+                      "argumentTypes": null,
+                      "hexValue": "74727565",
+                      "id": 150,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "bool",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "1298:4:1",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      },
+                      "value": "true"
+                    },
+                    "functionReturnParameters": 145,
+                    "id": 151,
+                    "nodeType": "Return",
+                    "src": "1291:11:1"
+                  }
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 156,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "isOwner",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 142,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "680:0:1"
+              "src": "1226:2:1"
             },
-            "scope": 106,
-            "src": "623:157:1",
-            "stateMutability": "nonpayable",
+            "returnParameters": {
+              "id": 145,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 144,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 156,
+                  "src": "1250:4:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 143,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1250:4:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1249:6:1"
+            },
+            "scope": 157,
+            "src": "1210:126:1",
+            "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 107,
-        "src": "121:661:1"
+        "scope": 158,
+        "src": "121:1217:1"
       }
     ],
-    "src": "87:696:1"
+    "src": "87:1252:1"
   },
   "legacyAST": {
     "absolutePath": "/C/coursera/truffle/eWallet/contracts/wallet.sol",
     "exportedSymbols": {
       "wallet": [
-        106
+        157
       ]
     },
-    "id": 107,
+    "id": 158,
     "nodeType": "SourceUnit",
     "nodes": [
       {
@@ -973,24 +1604,51 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 106,
+        "id": 157,
         "linearizedBaseContracts": [
-          106
+          157
         ],
         "name": "wallet",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
+            "constant": false,
+            "id": 40,
+            "name": "owner",
+            "nodeType": "VariableDeclaration",
+            "scope": 157,
+            "src": "143:13:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 39,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "143:7:1",
+              "stateMutability": "nonpayable",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
             "canonicalName": "wallet.Wallet",
-            "id": 45,
+            "id": 47,
             "members": [
               {
                 "constant": false,
-                "id": 40,
+                "id": 42,
                 "name": "id",
                 "nodeType": "VariableDeclaration",
-                "scope": 45,
-                "src": "167:10:1",
+                "scope": 47,
+                "src": "187:10:1",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -998,10 +1656,10 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 39,
+                  "id": 41,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "167:7:1",
+                  "src": "187:7:1",
                   "stateMutability": "nonpayable",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address",
@@ -1013,11 +1671,11 @@
               },
               {
                 "constant": false,
-                "id": 42,
+                "id": 44,
                 "name": "ammount",
                 "nodeType": "VariableDeclaration",
-                "scope": 45,
-                "src": "187:15:1",
+                "scope": 47,
+                "src": "207:15:1",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1025,10 +1683,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 41,
+                  "id": 43,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "187:7:1",
+                  "src": "207:7:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -1039,11 +1697,11 @@
               },
               {
                 "constant": false,
-                "id": 44,
+                "id": 46,
                 "name": "mailid",
                 "nodeType": "VariableDeclaration",
-                "scope": 45,
-                "src": "212:13:1",
+                "scope": 47,
+                "src": "232:13:1",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1051,10 +1709,10 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 43,
+                  "id": 45,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
-                  "src": "212:6:1",
+                  "src": "232:6:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_string_storage_ptr",
                     "typeString": "string"
@@ -1066,50 +1724,50 @@
             ],
             "name": "Wallet",
             "nodeType": "StructDefinition",
-            "scope": 106,
-            "src": "143:89:1",
+            "scope": 157,
+            "src": "163:89:1",
             "visibility": "public"
           },
           {
             "constant": false,
-            "id": 49,
+            "id": 51,
             "name": "getwallet",
             "nodeType": "VariableDeclaration",
-            "scope": 106,
-            "src": "238:36:1",
+            "scope": 157,
+            "src": "258:36:1",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Wallet_$45_storage_$",
+              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Wallet_$47_storage_$",
               "typeString": "mapping(address => struct wallet.Wallet)"
             },
             "typeName": {
-              "id": 48,
+              "id": 50,
               "keyType": {
-                "id": 46,
+                "id": 48,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
-                "src": "246:7:1",
+                "src": "266:7:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_address",
                   "typeString": "address"
                 }
               },
               "nodeType": "Mapping",
-              "src": "238:26:1",
+              "src": "258:26:1",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Wallet_$45_storage_$",
+                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Wallet_$47_storage_$",
                 "typeString": "mapping(address => struct wallet.Wallet)"
               },
               "valueType": {
                 "contractScope": null,
-                "id": 47,
+                "id": 49,
                 "name": "Wallet",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 45,
-                "src": "257:6:1",
+                "referencedDeclaration": 47,
+                "src": "277:6:1",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_Wallet_$45_storage_ptr",
+                  "typeIdentifier": "t_struct$_Wallet_$47_storage_ptr",
                   "typeString": "struct wallet.Wallet"
                 }
               }
@@ -1119,14 +1777,109 @@
           },
           {
             "body": {
-              "id": 68,
+              "id": 59,
               "nodeType": "Block",
-              "src": "439:62:1",
+              "src": "420:35:1",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 66,
+                    "id": 57,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 54,
+                      "name": "owner",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 40,
+                      "src": "430:5:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 55,
+                        "name": "msg",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 172,
+                        "src": "438:3:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_message",
+                          "typeString": "msg"
+                        }
+                      },
+                      "id": 56,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "sender",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "438:10:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address_payable",
+                        "typeString": "address payable"
+                      }
+                    },
+                    "src": "430:18:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 58,
+                  "nodeType": "ExpressionStatement",
+                  "src": "430:18:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 60,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 52,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "410:2:1"
+            },
+            "returnParameters": {
+              "id": 53,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "420:0:1"
+            },
+            "scope": 157,
+            "src": "399:56:1",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 77,
+              "nodeType": "Block",
+              "src": "525:56:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 75,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1135,26 +1888,26 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 58,
+                        "id": 67,
                         "name": "getwallet",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 49,
-                        "src": "449:9:1",
+                        "referencedDeclaration": 51,
+                        "src": "535:9:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Wallet_$45_storage_$",
+                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Wallet_$47_storage_$",
                           "typeString": "mapping(address => struct wallet.Wallet storage ref)"
                         }
                       },
-                      "id": 60,
+                      "id": 69,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 59,
+                        "id": 68,
                         "name": "add",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 51,
-                        "src": "459:3:1",
+                        "referencedDeclaration": 62,
+                        "src": "545:3:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -1165,9 +1918,9 @@
                       "isPure": false,
                       "lValueRequested": true,
                       "nodeType": "IndexAccess",
-                      "src": "449:14:1",
+                      "src": "535:14:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Wallet_$45_storage",
+                        "typeIdentifier": "t_struct$_Wallet_$47_storage",
                         "typeString": "struct wallet.Wallet storage ref"
                       }
                     },
@@ -1178,12 +1931,12 @@
                       "arguments": [
                         {
                           "argumentTypes": null,
-                          "id": 62,
+                          "id": 71,
                           "name": "add",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 51,
-                          "src": "473:3:1",
+                          "referencedDeclaration": 62,
+                          "src": "559:3:1",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
                             "typeString": "address"
@@ -1191,25 +1944,30 @@
                         },
                         {
                           "argumentTypes": null,
-                          "id": 63,
-                          "name": "ammount",
-                          "nodeType": "Identifier",
-                          "overloadedDeclarations": [],
-                          "referencedDeclaration": 53,
-                          "src": "478:7:1",
+                          "hexValue": "30",
+                          "id": 72,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "number",
+                          "lValueRequested": false,
+                          "nodeType": "Literal",
+                          "src": "564:1:1",
+                          "subdenomination": null,
                           "typeDescriptions": {
-                            "typeIdentifier": "t_uint256",
-                            "typeString": "uint256"
-                          }
+                            "typeIdentifier": "t_rational_0_by_1",
+                            "typeString": "int_const 0"
+                          },
+                          "value": "0"
                         },
                         {
                           "argumentTypes": null,
-                          "id": 64,
+                          "id": 73,
                           "name": "mailid",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 55,
-                          "src": "487:6:1",
+                          "referencedDeclaration": 64,
+                          "src": "567:6:1",
                           "typeDescriptions": {
                             "typeIdentifier": "t_string_memory_ptr",
                             "typeString": "string memory"
@@ -1223,26 +1981,26 @@
                             "typeString": "address"
                           },
                           {
-                            "typeIdentifier": "t_uint256",
-                            "typeString": "uint256"
+                            "typeIdentifier": "t_rational_0_by_1",
+                            "typeString": "int_const 0"
                           },
                           {
                             "typeIdentifier": "t_string_memory_ptr",
                             "typeString": "string memory"
                           }
                         ],
-                        "id": 61,
+                        "id": 70,
                         "name": "Wallet",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 45,
-                        "src": "466:6:1",
+                        "referencedDeclaration": 47,
+                        "src": "552:6:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_struct$_Wallet_$45_storage_ptr_$",
+                          "typeIdentifier": "t_type$_t_struct$_Wallet_$47_storage_ptr_$",
                           "typeString": "type(struct wallet.Wallet storage pointer)"
                         }
                       },
-                      "id": 65,
+                      "id": 74,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1250,42 +2008,42 @@
                       "lValueRequested": false,
                       "names": [],
                       "nodeType": "FunctionCall",
-                      "src": "466:28:1",
+                      "src": "552:22:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Wallet_$45_memory",
+                        "typeIdentifier": "t_struct$_Wallet_$47_memory",
                         "typeString": "struct wallet.Wallet memory"
                       }
                     },
-                    "src": "449:45:1",
+                    "src": "535:39:1",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Wallet_$45_storage",
+                      "typeIdentifier": "t_struct$_Wallet_$47_storage",
                       "typeString": "struct wallet.Wallet storage ref"
                     }
                   },
-                  "id": 67,
+                  "id": 76,
                   "nodeType": "ExpressionStatement",
-                  "src": "449:45:1"
+                  "src": "535:39:1"
                 }
               ]
             },
             "documentation": null,
-            "id": 69,
+            "id": 78,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "createWallet",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 56,
+              "id": 65,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 51,
+                  "id": 62,
                   "name": "add",
                   "nodeType": "VariableDeclaration",
-                  "scope": 69,
-                  "src": "359:11:1",
+                  "scope": 78,
+                  "src": "483:11:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1293,10 +2051,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 50,
+                    "id": 61,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "359:7:1",
+                    "src": "483:7:1",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1308,37 +2066,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 53,
-                  "name": "ammount",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 69,
-                  "src": "380:15:1",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  },
-                  "typeName": {
-                    "id": 52,
-                    "name": "uint256",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "380:7:1",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                },
-                {
-                  "constant": false,
-                  "id": 55,
+                  "id": 64,
                   "name": "mailid",
                   "nodeType": "VariableDeclaration",
-                  "scope": 69,
-                  "src": "405:20:1",
+                  "scope": 78,
+                  "src": "496:20:1",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -1346,10 +2078,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 54,
+                    "id": 63,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "405:6:1",
+                    "src": "496:6:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -1359,25 +2091,25 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "349:82:1"
+              "src": "482:35:1"
             },
             "returnParameters": {
-              "id": 57,
+              "id": 66,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "439:0:1"
+              "src": "525:0:1"
             },
-            "scope": 106,
-            "src": "328:173:1",
+            "scope": 157,
+            "src": "461:120:1",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 81,
+              "id": 89,
               "nodeType": "Block",
-              "src": "571:46:1",
+              "src": "640:53:1",
               "statements": [
                 {
                   "expression": {
@@ -1386,29 +2118,45 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 76,
+                        "id": 83,
                         "name": "getwallet",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 49,
-                        "src": "588:9:1",
+                        "referencedDeclaration": 51,
+                        "src": "657:9:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Wallet_$45_storage_$",
+                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Wallet_$47_storage_$",
                           "typeString": "mapping(address => struct wallet.Wallet storage ref)"
                         }
                       },
-                      "id": 78,
+                      "id": 86,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 77,
-                        "name": "add",
-                        "nodeType": "Identifier",
-                        "overloadedDeclarations": [],
-                        "referencedDeclaration": 71,
-                        "src": "598:3:1",
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 84,
+                          "name": "msg",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 172,
+                          "src": "667:3:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_message",
+                            "typeString": "msg"
+                          }
+                        },
+                        "id": 85,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "sender",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "667:10:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_address",
-                          "typeString": "address"
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
                         }
                       },
                       "isConstant": false,
@@ -1416,85 +2164,57 @@
                       "isPure": false,
                       "lValueRequested": false,
                       "nodeType": "IndexAccess",
-                      "src": "588:14:1",
+                      "src": "657:21:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Wallet_$45_storage",
+                        "typeIdentifier": "t_struct$_Wallet_$47_storage",
                         "typeString": "struct wallet.Wallet storage ref"
                       }
                     },
-                    "id": 79,
+                    "id": 87,
                     "isConstant": false,
                     "isLValue": true,
                     "isPure": false,
                     "lValueRequested": false,
                     "memberName": "ammount",
                     "nodeType": "MemberAccess",
-                    "referencedDeclaration": 42,
-                    "src": "588:22:1",
+                    "referencedDeclaration": 44,
+                    "src": "657:29:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "functionReturnParameters": 75,
-                  "id": 80,
+                  "functionReturnParameters": 82,
+                  "id": 88,
                   "nodeType": "Return",
-                  "src": "581:29:1"
+                  "src": "650:36:1"
                 }
               ]
             },
             "documentation": null,
-            "id": 82,
+            "id": 90,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "showAmmount",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 72,
+              "id": 79,
               "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 71,
-                  "name": "add",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 82,
-                  "src": "528:11:1",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_address",
-                    "typeString": "address"
-                  },
-                  "typeName": {
-                    "id": 70,
-                    "name": "address",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "528:7:1",
-                    "stateMutability": "nonpayable",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_address",
-                      "typeString": "address"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                }
-              ],
-              "src": "527:13:1"
+              "parameters": [],
+              "src": "607:2:1"
             },
             "returnParameters": {
-              "id": 75,
+              "id": 82,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 74,
+                  "id": 81,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 82,
-                  "src": "562:7:1",
+                  "scope": 90,
+                  "src": "631:7:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1502,10 +2222,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 73,
+                    "id": 80,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "562:7:1",
+                    "src": "631:7:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1515,234 +2235,559 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "561:9:1"
+              "src": "630:9:1"
             },
-            "scope": 106,
-            "src": "507:110:1",
+            "scope": 157,
+            "src": "587:106:1",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 104,
+              "id": 140,
               "nodeType": "Block",
-              "src": "680:100:1",
+              "src": "769:435:1",
               "statements": [
                 {
-                  "expression": {
+                  "condition": {
                     "argumentTypes": null,
-                    "id": 95,
-                    "isConstant": false,
-                    "isLValue": false,
-                    "isPure": false,
-                    "lValueRequested": false,
-                    "leftHandSide": {
-                      "argumentTypes": null,
-                      "expression": {
-                        "argumentTypes": null,
-                        "baseExpression": {
-                          "argumentTypes": null,
-                          "id": 89,
-                          "name": "getwallet",
-                          "nodeType": "Identifier",
-                          "overloadedDeclarations": [],
-                          "referencedDeclaration": 49,
-                          "src": "690:9:1",
-                          "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Wallet_$45_storage_$",
-                            "typeString": "mapping(address => struct wallet.Wallet storage ref)"
-                          }
-                        },
-                        "id": 92,
-                        "indexExpression": {
-                          "argumentTypes": null,
-                          "expression": {
-                            "argumentTypes": null,
-                            "id": 90,
-                            "name": "msg",
-                            "nodeType": "Identifier",
-                            "overloadedDeclarations": [],
-                            "referencedDeclaration": 121,
-                            "src": "700:3:1",
-                            "typeDescriptions": {
-                              "typeIdentifier": "t_magic_message",
-                              "typeString": "msg"
-                            }
-                          },
-                          "id": 91,
-                          "isConstant": false,
-                          "isLValue": false,
-                          "isPure": false,
-                          "lValueRequested": false,
-                          "memberName": "sender",
-                          "nodeType": "MemberAccess",
-                          "referencedDeclaration": null,
-                          "src": "700:10:1",
-                          "typeDescriptions": {
-                            "typeIdentifier": "t_address_payable",
-                            "typeString": "address payable"
-                          }
-                        },
-                        "isConstant": false,
-                        "isLValue": true,
-                        "isPure": false,
-                        "lValueRequested": false,
-                        "nodeType": "IndexAccess",
-                        "src": "690:21:1",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Wallet_$45_storage",
-                          "typeString": "struct wallet.Wallet storage ref"
-                        }
-                      },
-                      "id": 93,
-                      "isConstant": false,
-                      "isLValue": true,
-                      "isPure": false,
-                      "lValueRequested": true,
-                      "memberName": "ammount",
-                      "nodeType": "MemberAccess",
-                      "referencedDeclaration": 42,
-                      "src": "690:29:1",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_uint256",
-                        "typeString": "uint256"
-                      }
+                    "commonType": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
                     },
-                    "nodeType": "Assignment",
-                    "operator": "-=",
-                    "rightHandSide": {
-                      "argumentTypes": null,
-                      "id": 94,
-                      "name": "ammount",
-                      "nodeType": "Identifier",
-                      "overloadedDeclarations": [],
-                      "referencedDeclaration": 86,
-                      "src": "723:7:1",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_uint64",
-                        "typeString": "uint64"
-                      }
-                    },
-                    "src": "690:40:1",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
-                    }
-                  },
-                  "id": 96,
-                  "nodeType": "ExpressionStatement",
-                  "src": "690:40:1"
-                },
-                {
-                  "expression": {
-                    "argumentTypes": null,
                     "id": 102,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
-                    "leftHandSide": {
+                    "leftExpression": {
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "baseExpression": {
-                          "argumentTypes": null,
-                          "id": 97,
-                          "name": "getwallet",
-                          "nodeType": "Identifier",
-                          "overloadedDeclarations": [],
-                          "referencedDeclaration": 49,
-                          "src": "740:9:1",
-                          "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Wallet_$45_storage_$",
-                            "typeString": "mapping(address => struct wallet.Wallet storage ref)"
-                          }
-                        },
                         "id": 99,
-                        "indexExpression": {
-                          "argumentTypes": null,
-                          "id": 98,
-                          "name": "add",
-                          "nodeType": "Identifier",
-                          "overloadedDeclarations": [],
-                          "referencedDeclaration": 84,
-                          "src": "750:3:1",
-                          "typeDescriptions": {
-                            "typeIdentifier": "t_address",
-                            "typeString": "address"
-                          }
-                        },
-                        "isConstant": false,
-                        "isLValue": true,
-                        "isPure": false,
-                        "lValueRequested": false,
-                        "nodeType": "IndexAccess",
-                        "src": "740:14:1",
+                        "name": "msg",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 172,
+                        "src": "783:3:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Wallet_$45_storage",
-                          "typeString": "struct wallet.Wallet storage ref"
+                          "typeIdentifier": "t_magic_message",
+                          "typeString": "msg"
                         }
                       },
                       "id": 100,
                       "isConstant": false,
-                      "isLValue": true,
+                      "isLValue": false,
                       "isPure": false,
-                      "lValueRequested": true,
-                      "memberName": "ammount",
+                      "lValueRequested": false,
+                      "memberName": "sender",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 42,
-                      "src": "740:22:1",
+                      "referencedDeclaration": null,
+                      "src": "783:10:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_uint256",
-                        "typeString": "uint256"
+                        "typeIdentifier": "t_address_payable",
+                        "typeString": "address payable"
                       }
                     },
-                    "nodeType": "Assignment",
-                    "operator": "+=",
-                    "rightHandSide": {
+                    "nodeType": "BinaryOperation",
+                    "operator": "==",
+                    "rightExpression": {
                       "argumentTypes": null,
                       "id": 101,
-                      "name": "ammount",
+                      "name": "owner",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 86,
-                      "src": "766:7:1",
+                      "referencedDeclaration": 40,
+                      "src": "797:5:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_uint64",
-                        "typeString": "uint64"
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
                       }
                     },
-                    "src": "740:33:1",
+                    "src": "783:19:1",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
                     }
                   },
-                  "id": 103,
-                  "nodeType": "ExpressionStatement",
-                  "src": "740:33:1"
+                  "falseBody": {
+                    "id": 138,
+                    "nodeType": "Block",
+                    "src": "913:285:1",
+                    "statements": [
+                      {
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 123,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "leftHandSide": {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "baseExpression": {
+                                "argumentTypes": null,
+                                "id": 117,
+                                "name": "getwallet",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 51,
+                                "src": "985:9:1",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Wallet_$47_storage_$",
+                                  "typeString": "mapping(address => struct wallet.Wallet storage ref)"
+                                }
+                              },
+                              "id": 120,
+                              "indexExpression": {
+                                "argumentTypes": null,
+                                "expression": {
+                                  "argumentTypes": null,
+                                  "id": 118,
+                                  "name": "msg",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [],
+                                  "referencedDeclaration": 172,
+                                  "src": "995:3:1",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_magic_message",
+                                    "typeString": "msg"
+                                  }
+                                },
+                                "id": 119,
+                                "isConstant": false,
+                                "isLValue": false,
+                                "isPure": false,
+                                "lValueRequested": false,
+                                "memberName": "sender",
+                                "nodeType": "MemberAccess",
+                                "referencedDeclaration": null,
+                                "src": "995:10:1",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_address_payable",
+                                  "typeString": "address payable"
+                                }
+                              },
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "nodeType": "IndexAccess",
+                              "src": "985:21:1",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_Wallet_$47_storage",
+                                "typeString": "struct wallet.Wallet storage ref"
+                              }
+                            },
+                            "id": 121,
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": true,
+                            "memberName": "ammount",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 44,
+                            "src": "985:29:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "nodeType": "Assignment",
+                          "operator": "-=",
+                          "rightHandSide": {
+                            "argumentTypes": null,
+                            "id": 122,
+                            "name": "bal",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 94,
+                            "src": "1018:3:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint64",
+                              "typeString": "uint64"
+                            }
+                          },
+                          "src": "985:36:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "id": 124,
+                        "nodeType": "ExpressionStatement",
+                        "src": "985:36:1"
+                      },
+                      {
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 130,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "leftHandSide": {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "baseExpression": {
+                                "argumentTypes": null,
+                                "id": 125,
+                                "name": "getwallet",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 51,
+                                "src": "1035:9:1",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Wallet_$47_storage_$",
+                                  "typeString": "mapping(address => struct wallet.Wallet storage ref)"
+                                }
+                              },
+                              "id": 127,
+                              "indexExpression": {
+                                "argumentTypes": null,
+                                "id": 126,
+                                "name": "to",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 92,
+                                "src": "1045:2:1",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_address",
+                                  "typeString": "address"
+                                }
+                              },
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "nodeType": "IndexAccess",
+                              "src": "1035:13:1",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_Wallet_$47_storage",
+                                "typeString": "struct wallet.Wallet storage ref"
+                              }
+                            },
+                            "id": 128,
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": true,
+                            "memberName": "ammount",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 44,
+                            "src": "1035:21:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "nodeType": "Assignment",
+                          "operator": "+=",
+                          "rightHandSide": {
+                            "argumentTypes": null,
+                            "id": 129,
+                            "name": "bal",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 94,
+                            "src": "1060:3:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint64",
+                              "typeString": "uint64"
+                            }
+                          },
+                          "src": "1035:28:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "id": 131,
+                        "nodeType": "ExpressionStatement",
+                        "src": "1035:28:1"
+                      },
+                      {
+                        "expression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "baseExpression": {
+                              "argumentTypes": null,
+                              "id": 132,
+                              "name": "getwallet",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 51,
+                              "src": "1084:9:1",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Wallet_$47_storage_$",
+                                "typeString": "mapping(address => struct wallet.Wallet storage ref)"
+                              }
+                            },
+                            "id": 135,
+                            "indexExpression": {
+                              "argumentTypes": null,
+                              "expression": {
+                                "argumentTypes": null,
+                                "id": 133,
+                                "name": "msg",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 172,
+                                "src": "1094:3:1",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_magic_message",
+                                  "typeString": "msg"
+                                }
+                              },
+                              "id": 134,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "memberName": "sender",
+                              "nodeType": "MemberAccess",
+                              "referencedDeclaration": null,
+                              "src": "1094:10:1",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_address_payable",
+                                "typeString": "address payable"
+                              }
+                            },
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "nodeType": "IndexAccess",
+                            "src": "1084:21:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_Wallet_$47_storage",
+                              "typeString": "struct wallet.Wallet storage ref"
+                            }
+                          },
+                          "id": 136,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "ammount",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 44,
+                          "src": "1084:29:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "functionReturnParameters": 98,
+                        "id": 137,
+                        "nodeType": "Return",
+                        "src": "1077:36:1"
+                      }
+                    ]
+                  },
+                  "id": 139,
+                  "nodeType": "IfStatement",
+                  "src": "779:419:1",
+                  "trueBody": {
+                    "id": 116,
+                    "nodeType": "Block",
+                    "src": "804:103:1",
+                    "statements": [
+                      {
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 108,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "leftHandSide": {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "baseExpression": {
+                                "argumentTypes": null,
+                                "id": 103,
+                                "name": "getwallet",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 51,
+                                "src": "818:9:1",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Wallet_$47_storage_$",
+                                  "typeString": "mapping(address => struct wallet.Wallet storage ref)"
+                                }
+                              },
+                              "id": 105,
+                              "indexExpression": {
+                                "argumentTypes": null,
+                                "id": 104,
+                                "name": "to",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 92,
+                                "src": "828:2:1",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_address",
+                                  "typeString": "address"
+                                }
+                              },
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "nodeType": "IndexAccess",
+                              "src": "818:13:1",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_Wallet_$47_storage",
+                                "typeString": "struct wallet.Wallet storage ref"
+                              }
+                            },
+                            "id": 106,
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": true,
+                            "memberName": "ammount",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 44,
+                            "src": "818:21:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "nodeType": "Assignment",
+                          "operator": "+=",
+                          "rightHandSide": {
+                            "argumentTypes": null,
+                            "id": 107,
+                            "name": "bal",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 94,
+                            "src": "843:3:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint64",
+                              "typeString": "uint64"
+                            }
+                          },
+                          "src": "818:28:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "id": 109,
+                        "nodeType": "ExpressionStatement",
+                        "src": "818:28:1"
+                      },
+                      {
+                        "expression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "baseExpression": {
+                              "argumentTypes": null,
+                              "id": 110,
+                              "name": "getwallet",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 51,
+                              "src": "867:9:1",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Wallet_$47_storage_$",
+                                "typeString": "mapping(address => struct wallet.Wallet storage ref)"
+                              }
+                            },
+                            "id": 113,
+                            "indexExpression": {
+                              "argumentTypes": null,
+                              "expression": {
+                                "argumentTypes": null,
+                                "id": 111,
+                                "name": "msg",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 172,
+                                "src": "877:3:1",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_magic_message",
+                                  "typeString": "msg"
+                                }
+                              },
+                              "id": 112,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "memberName": "sender",
+                              "nodeType": "MemberAccess",
+                              "referencedDeclaration": null,
+                              "src": "877:10:1",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_address_payable",
+                                "typeString": "address payable"
+                              }
+                            },
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "nodeType": "IndexAccess",
+                            "src": "867:21:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_Wallet_$47_storage",
+                              "typeString": "struct wallet.Wallet storage ref"
+                            }
+                          },
+                          "id": 114,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "ammount",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 44,
+                          "src": "867:29:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "functionReturnParameters": 98,
+                        "id": 115,
+                        "nodeType": "Return",
+                        "src": "860:36:1"
+                      }
+                    ]
+                  }
                 }
               ]
             },
             "documentation": null,
-            "id": 105,
+            "id": 141,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "sendAmmount",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 87,
+              "id": 95,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 84,
-                  "name": "add",
+                  "id": 92,
+                  "name": "to",
                   "nodeType": "VariableDeclaration",
-                  "scope": 105,
-                  "src": "644:11:1",
+                  "scope": 141,
+                  "src": "720:10:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1750,10 +2795,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 83,
+                    "id": 91,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "644:7:1",
+                    "src": "720:7:1",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1765,11 +2810,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 86,
-                  "name": "ammount",
+                  "id": 94,
+                  "name": "bal",
                   "nodeType": "VariableDeclaration",
-                  "scope": 105,
-                  "src": "657:14:1",
+                  "scope": 141,
+                  "src": "732:10:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1777,10 +2822,10 @@
                     "typeString": "uint64"
                   },
                   "typeName": {
-                    "id": 85,
+                    "id": 93,
                     "name": "uint64",
                     "nodeType": "ElementaryTypeName",
-                    "src": "657:6:1",
+                    "src": "732:6:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint64",
                       "typeString": "uint64"
@@ -1790,26 +2835,227 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "643:29:1"
+              "src": "719:24:1"
             },
             "returnParameters": {
-              "id": 88,
+              "id": 98,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 97,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 141,
+                  "src": "760:7:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 96,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "760:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "759:9:1"
+            },
+            "scope": 157,
+            "src": "699:505:1",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 155,
+              "nodeType": "Block",
+              "src": "1256:80:1",
+              "statements": [
+                {
+                  "condition": {
+                    "argumentTypes": null,
+                    "commonType": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    },
+                    "id": 149,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 146,
+                        "name": "msg",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 172,
+                        "src": "1270:3:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_message",
+                          "typeString": "msg"
+                        }
+                      },
+                      "id": 147,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "sender",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "1270:10:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address_payable",
+                        "typeString": "address payable"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "==",
+                    "rightExpression": {
+                      "argumentTypes": null,
+                      "id": 148,
+                      "name": "owner",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 40,
+                      "src": "1284:5:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "src": "1270:19:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "falseBody": {
+                    "expression": {
+                      "argumentTypes": null,
+                      "hexValue": "66616c7365",
+                      "id": 152,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "bool",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "1324:5:1",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      },
+                      "value": "false"
+                    },
+                    "functionReturnParameters": 145,
+                    "id": 153,
+                    "nodeType": "Return",
+                    "src": "1317:12:1"
+                  },
+                  "id": 154,
+                  "nodeType": "IfStatement",
+                  "src": "1266:63:1",
+                  "trueBody": {
+                    "expression": {
+                      "argumentTypes": null,
+                      "hexValue": "74727565",
+                      "id": 150,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "bool",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "1298:4:1",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      },
+                      "value": "true"
+                    },
+                    "functionReturnParameters": 145,
+                    "id": 151,
+                    "nodeType": "Return",
+                    "src": "1291:11:1"
+                  }
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 156,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "isOwner",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 142,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "680:0:1"
+              "src": "1226:2:1"
             },
-            "scope": 106,
-            "src": "623:157:1",
-            "stateMutability": "nonpayable",
+            "returnParameters": {
+              "id": 145,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 144,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 156,
+                  "src": "1250:4:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 143,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1250:4:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1249:6:1"
+            },
+            "scope": 157,
+            "src": "1210:126:1",
+            "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 107,
-        "src": "121:661:1"
+        "scope": 158,
+        "src": "121:1217:1"
       }
     ],
-    "src": "87:696:1"
+    "src": "87:1252:1"
   },
   "compiler": {
     "name": "solc",
@@ -1819,12 +3065,12 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0x0d8F8BF9Fb9e80c49736175022A38cb334755387",
-      "transactionHash": "0x8075e46360a799b4d008f70a0517c4ac1f7b0f2176bce882ecd775ca22a89f69"
+      "address": "0x1A3d4ed4F9311F192f7D8F6a73ca37CDf969DA6B",
+      "transactionHash": "0x2bc92344bfa1495fc9f63c9ef2963eb4985077e6922470c21c1bf300ff230a55"
     }
   },
   "schemaVersion": "3.2.3",
-  "updatedAt": "2020-11-26T08:07:45.005Z",
+  "updatedAt": "2020-12-27T07:56:36.132Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {}

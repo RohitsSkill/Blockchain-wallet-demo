@@ -3,6 +3,8 @@
 pragma solidity >=0.4.22 <0.8.0;
 
 contract wallet {
+    address owner;
+
     struct Wallet {
         address id;
         uint256 ammount;
@@ -11,22 +13,36 @@ contract wallet {
 
     mapping(address => Wallet) getwallet;
 
-    //mapping(address => Wallet) getBallance;
+    // modifier isOwner() {
+    //     require(msg.sender == this.owner);
+    //     _;
+    // }
 
-    function createWallet(
-        address add,
-        uint256 ammount,
-        string memory mailid
-    ) public {
-        getwallet[add] = Wallet(add, ammount, mailid);
+    constructor() public {
+        owner = msg.sender;
     }
 
-    function showAmmount(address add) public view returns (uint256) {
-        return getwallet[add].ammount;
+    function createWallet(address add, string memory mailid) public {
+        getwallet[add] = Wallet(add, 0, mailid);
     }
 
-    function sendAmmount(address add, uint64 ammount) public {
-        getwallet[msg.sender].ammount -= ammount;
-        getwallet[add].ammount += ammount;
+    function showAmmount() public view returns (uint256) {
+        return getwallet[msg.sender].ammount;
+    }
+
+    function sendAmmount(address to, uint64 bal) public returns (uint256) {
+        if (msg.sender == owner) {
+            getwallet[to].ammount += bal;
+            return getwallet[msg.sender].ammount;
+        } else {
+            getwallet[msg.sender].ammount -= bal;
+            getwallet[to].ammount += bal;
+            return getwallet[msg.sender].ammount;
+        }
+    }
+
+    function isOwner() public view returns (bool) {
+        if (msg.sender == owner) return true;
+        else return false;
     }
 }
