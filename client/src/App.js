@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Login from "./view/login.jsx";
+import Send from './view/send.jsx'
 import "./App.css";
+import Register from "./view/register.jsx";
 
 class App extends Component {
   //state = { storageValue: 0, web3: null, accounts: null, contract: null };
@@ -51,7 +53,7 @@ class App extends Component {
 
   render() {
       // const data = register();
-      return <Login />
+      return <Send />
     // return (
     //   <div className="App">
     //     <h1>Good to Go!</h1>

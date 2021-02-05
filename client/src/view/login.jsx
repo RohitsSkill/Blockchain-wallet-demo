@@ -4,6 +4,7 @@ import Register from "./register.jsx";
 import Send from "./send.jsx";
 import walletContract from "../contracts/wallet.json";
 import getWeb3 from "../getWeb3";
+import GoogleLogin from "react-google-login"
 
 class login extends Component{
 	state = {
@@ -51,19 +52,68 @@ class login extends Component{
 		this.setState({password : event.target.value});
 	}
 
-	validate = (event)=>{
+	validate = async(event)=>{
 		event.preventDefault();
-		if(this.state.email.toLowerCase==="r@gmail.com".toLowerCase && this.state.password==="1"){
-			ReactDOM.render(<Send/>,document.getElementById("root"));
+	
+		if(this.state.email == null || this.state.password==null){
+			alert("Enter valid Credentials..!")
 		}
-		else{
-			alert("Wrong Password");
+		try{
+			const {contract} = this.state;
+			console.log(contract);
+			console.log("Email : "+this.state.email);
+			console.log(contract)
+			const address = await contract.methods.login(this.state.email,this.state.password).call();
+			console.log(address)
+			if(address != "0x0000000000000000000000000000000000000000"){
+				let data = {
+					email: this.state.email,
+					accountNo: address
+				};
+				alert("Login Successful")
+				localStorage.removeItem("data");
+				localStorage.setItem("data", JSON.stringify(data));
+				ReactDOM.render(<Send/>,document.getElementById("root"));
+			}
+			else{
+				alert("Wrong Password");
+			}
+		}
+		catch(e){
+			console.log(e);
 		}
 	}
 
 	gotoregister = () =>{
 		ReactDOM.render(<Register/>,document.getElementById("root"));
 	}
+
+	responseGoogle = async(response) => {
+		try{
+			const {contract} = this.state
+			console.log(response);
+			const address = await contract.methods.isValid(response.profileObj.email).call()
+			if (address=="0x0000000000000000000000000000000000000000"){
+				alert("Unregistered Mail Please Register first")
+				return
+			}
+			let data = {
+				email: response.profileObj.email,
+				accountNo: address
+			};
+			localStorage.setItem("data", JSON.stringify(data));
+			alert("Login Successful")
+			ReactDOM.render(<Send/>,document.getElementById("root"));
+		}
+		catch(error){
+			alert(error);
+			console.log(error);
+		}
+	}
+
+	// loginfailed = () => {
+	// 	alert('Login failed')
+	// }
 
 	render = () => {
 		const image = '../style/images/bg-01.jpg';
@@ -100,18 +150,19 @@ class login extends Component{
 						</span>
 					</div>
 
-					<div className="flex-c p-b-112">
-						<a onClick={this.validate} className="login100-social-item">
-							<i className="fa fa-facebook-f"></i>
-						</a>
-
-						<a onClick={this.validate} className="login100-social-item">
-							<img src="images/icons/icon-google.png" alt="GOOGLE"></img>
-						</a>
+					<div className="flex-c p-b-11">
+						<GoogleLogin
+							clientId = "734337510323-hs3g021aamjihlb7qeugdee66v5dosld.apps.googleusercontent.com"
+							buttonText = "Login"
+							onSuccess = {this.responseGoogle}
+							onFailure = {this.loginfailed}
+						/>
 					</div>
+					<br/>
 
 					<div className="text-center">
-						<a onClick={this.gotoregister} className="txt2 hov1">
+						New Account<br/>
+						<a onClick={this.gotoregister} className="hov1">
 							Sign up
 						</a>
 					</div>
