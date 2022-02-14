@@ -15,7 +15,15 @@ contract wallet {
         bool isvalid;
     }
 
+    struct transaction {
+        string to;
+        string from;
+        uint256 ammount;
+        uint256 time;
+    }
+
     mapping(address => Wallet) getwallet;
+    mapping(address => transaction[]) getTrans;
     mapping(string => address) registered;
 
     constructor(
@@ -24,7 +32,7 @@ contract wallet {
         string memory password
     ) public {
         owner = msg.sender;
-        getwallet[msg.sender] = Wallet(owner, 0, name, mailid, password, true);
+        getwallet[msg.sender] = Wallet(owner, 10, name, mailid, password, true);
         registered[mailid] = msg.sender;
     }
 
@@ -52,7 +60,7 @@ contract wallet {
         // if (!getwallet[mailid].isvalid) return false;
         getwallet[msg.sender] = Wallet(
             msg.sender,
-            0,
+            10,
             name,
             mailid,
             password,
@@ -78,11 +86,30 @@ contract wallet {
         return address(0);
     }
 
-    function sendAmmount(string memory to, uint64 bal) public returns (address) {
+    function setNewPass(string memory password) public {
+        getwallet[msg.sender].password = password;
+    }
+
+    function getPass(string memory email) public view returns (string memory) {
+        if (registered[email] != address(0))
+            return getwallet[registered[email]].password;
+        else return "0";
+    }
+
+    function sendAmmount(string memory to, uint64 bal)
+        public
+        returns (address)
+    {
         address receiver = registered[to];
-        if(receiver == address(0)){
+        if (receiver == address(0)) {
             return receiver;
         }
+        getTrans[msg.sender].push(
+            transaction(to, getwallet[msg.sender].mailid, bal, now)
+        );
+        getTrans[receiver].push(
+            transaction(to, getwallet[msg.sender].mailid, bal, now)
+        );
         if (msg.sender == owner) {
             getwallet[receiver].ammount += bal;
             return receiver;
@@ -96,5 +123,9 @@ contract wallet {
     function isOwner() public view returns (bool) {
         if (msg.sender == owner) return true;
         else return false;
+    }
+
+    function retTrans() public view returns (transaction[] memory) {
+        return getTrans[msg.sender];
     }
 }

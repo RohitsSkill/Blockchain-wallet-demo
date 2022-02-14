@@ -20,8 +20,8 @@ class register extends React.Component{
         web3: null,
         // accounts: null,
 		contract: null,
-		newAccount:"'0x26c39F83118FFed3C65C35c2971A8fF46C4C5317',",
-		privateKey:"b2da868b834aa8487e07e95751d1cee5064defe070a98349ea93015b5946a5f8",
+		// newAccount:"'0x26c39F83118FFed3C65C35c2971A8fF46C4C5317',",
+		// privateKey:"b2da868b834aa8487e07e95751d1cee5064defe070a98349ea93015b5946a5f8",
 	}
 
 
@@ -208,14 +208,17 @@ class register extends React.Component{
 		for (let i = 0; i < 4; i++) {
 			OTP += digits[Math.floor(Math.random() * 10)];
 		}
-		const doc = document.getElementById("provideOtp");
-		doc.otp.value = OTP;
+		// const doc = document.getElementById("provideOtp");
+		// doc.otp.value = OTP;
 		
-		console.log(doc.otp.value);
+		// console.log(doc.otp.value);
 		this.setState({otp: OTP});
 		this.setState({isDisabled: false});
-		emailjs.sendForm('service_hdgwsxh', 'otpEmail_7oyyweh', event.target, 'user_Pg2oWEKr29oq0kyPvu2af')
-			.then((result) => {
+		let msg = {
+			otp: this.state.otp,
+			to: this.state.email,
+		}
+		emailjs.send("service_hdgwsxh","otpEmail_7oyyweh",msg,"user_Pg2oWEKr29oq0kyPvu2af").then((result) => {
 				console.log(result.text);
 				alert("OTP send to your Mail");
 				this.setState({isDisabled: false});
@@ -267,10 +270,10 @@ class register extends React.Component{
 							<span className="focus-input100"></span>
 						</div>
 
-						<div className="wrap-input100 validate-input m-b-20" data-validate="Enter username or email" style={{display:"none"}}>
+						{/* <div className="wrap-input100 validate-input m-b-20" data-validate="Enter username or email" style={{display:"none"}}>
 							<input className="input100" type="otp" name="otp" placeholder="otp" />
 							<span className="focus-input100"></span>
-						</div>
+						</div> */}
 
 						<div className="container-login100-form-btn">
 							<button className="login100-form-btn">
@@ -311,7 +314,7 @@ class register extends React.Component{
 					</div>
 
 					<div className="wrap-input100 validate-input m-b-25" data-validate="Enter username or email">
-						<input className="input100" type="password" name="cnf_password" placeholder="conform password" onChange={this.updateCnfPassword}/>
+						<input className="input100" type="password" name="cnf_password" placeholder="confirm password" onChange={this.updateCnfPassword}/>
 						<span className="focus-input100"></span>
 					</div>
 

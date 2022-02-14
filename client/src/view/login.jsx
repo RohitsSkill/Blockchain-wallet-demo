@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ReactDOM from 'react-dom';
 import Register from "./register.jsx";
 import Send from "./send.jsx";
+import emailjs from "emailjs-com";
 import walletContract from "../contracts/wallet.json";
 import getWeb3 from "../getWeb3";
 import GoogleLogin from "react-google-login"
@@ -111,9 +112,25 @@ class login extends Component{
 		}
 	}
 
-	// loginfailed = () => {
-	// 	alert('Login failed')
-	// }
+	resetPassword = async() => {
+		// ReactDOM.render(<ResetPass/>,document.getElementById("root"));
+		const email = prompt("Enter Your Email");
+		const {contract} = this.state;
+		const pass = await contract.methods.getPass(email).call();
+		if(pass!=0){
+			let msg = {
+				to_name: "Applicant",
+				address: this.state.account,
+				password: pass,
+				to: email,
+			}
+			emailjs.send("service_hdgwsxh","registration",msg,"user_Pg2oWEKr29oq0kyPvu2af");
+			alert("Password Related to mail is sended.");
+		}
+		else{
+			alert("Email is not Registered..!");
+		}
+	}
 
 	render = () => {
 		const image = '../style/images/bg-01.jpg';
@@ -142,6 +159,10 @@ class login extends Component{
 						<button className="login100-form-btn">
 							Sign In
 						</button>
+					</div>
+					<br/>
+					<div className="container-login100-form-btn">
+						<div onClick={this.resetPassword}>Forgot Password..?</div>
 					</div>
 
 					<div className="text-center p-t-57 p-b-20">
